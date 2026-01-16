@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Galaxy Defenders</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="game-container">
+        <div class="hud-bar">
+            <div class="hud-item score-box">Score: <span id="score">0</span></div>
+            <div class="hud-item health-box">Shields: <span id="health">100</span>%</div>
+        </div>
+
+        <div id="game-area" class="game-area">
+            <div id="start-screen" class="overlay">
+                <h1 class="game-title">MATH GALAXY</h1>
+                <p>Type the answer and hit ENTER to shoot the rocks!</p>
+                <div class="instruction-box">
+                    <span><div class="legend-rock green"></div>Add</span>
+                    <span><div class="legend-rock red"></div>Subtract</span>
+                    <span><div class="legend-rock orange"></div>Multiply</span>
+                    <span><div class="legend-rock blue"></div>Divide</span>
+                </div>
+                <button onclick="startGame()">LAUNCH MISSION</button>
+            </div>
+
+            <div id="game-over-screen" class="overlay hidden">
+                <h1>MISSION FAILED!</h1>
+                <p>Final Score: <span id="final-score">0</span></p>
+                <button onclick="restartGame()">TRY AGAIN</button>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="spaceship-container">
+                <div id="spaceship-asset"></div>
+            </div>
+            <input type="number" id="player-input" placeholder="?" autocomplete="off">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
