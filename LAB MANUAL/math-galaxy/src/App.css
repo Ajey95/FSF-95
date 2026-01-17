@@ -1,0 +1,194 @@
+/* MathGalaxy.css */
+body {
+  margin: 0;
+  font-family: 'Fredoka One', cursive;
+  background: #0b0c15;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.game-container {
+  width: 700px;
+  height: 90vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  border: 4px solid #4a69bd;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(74, 105, 189, 0.5);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.hud-bar {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 10;
+  border-bottom: 2px solid #4a69bd;
+}
+
+.hud-item {
+  font-size: 1.5rem;
+  color: white;
+  letter-spacing: 1px;
+}
+.health-box span { color: #e55039; }
+.score-box span { color: #f6b93b; }
+
+.game-area {
+  flex-grow: 1;
+  position: relative;
+  overflow: hidden;
+  background-image: 
+      radial-gradient(white, rgba(255,255,255,.2) 2px, transparent 40px),
+      radial-gradient(white, rgba(255,255,255,.15) 1px, transparent 30px),
+      radial-gradient(white, rgba(255,255,255,.1) 2px, transparent 20px);
+  background-size: 550px 550px, 350px 350px, 250px 250px;
+}
+
+/* ASSETS */
+.spaceship-asset {
+  width: 100px;
+  height: 100px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'%3E%3Cpath fill='%23e55039' d='M256 0c-35.3 0-64 28.7-64 64v96c0 35.3 28.7 64 64 64s64-28.7 64-64V64c0-35.3-28.7-64-64-64z'/%3E%3Cpath fill='%23f6b93b' d='M352 160h-32v64h32c17.7 0 32-14.3 32-32s-14.3-32-32-32zM192 224h-32c-17.7 0-32-14.3-32-32s14.3-32 32-32h32v64z'/%3E%3Cpath fill='%234a69bd' d='M256 256c-70.7 0-128 57.3-128 128v64h256v-64c0-70.7-57.3-128-128-128z'/%3E%3Cpath fill='%231e3799' d='M160 448h192v32c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32v-32z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: center;
+  filter: drop-shadow(0 0 10px #4a69bd);
+}
+
+.asteroid {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+  z-index: 5;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  animation: tumble 12s linear infinite reverse;
+}
+
+.asteroid.plus { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%232ecc71' d='M45,3.1C31.2,6.4,18.8,13.5,9.6,24.1C-0.2,35.4-2.8,51.6,3.7,65.6c6.1,13.2,18.2,23.6,31.8,28.9c14.8,5.8,31.7,5.3,46.2-1.9c13.6-6.7,23.7-19.9,25.5-35c1.6-13.7-3-27.6-12.3-37.8C85.3,8.5,71.7,1.2,57.2,0.3C53.1-0.1,49,0.9,45,3.1z'/%3E%3Cpath fill='%2327ae60' d='M32.4,11.8c-5.4,2.3-10.3,5.7-14.4,9.9c-8.4,8.7-13.1,20.8-13,32.9c0.1,12.3,5.1,24.2,13.9,32.6c8.9,8.5,21.3,12.9,33.6,11.9c12.2-1,23.9-6.6,32-15.4c8.2-8.9,12.3-21.3,11.2-33.4c-1.1-11.8-6.8-22.9-15.7-30.7C79.6,11.7,67,7,55,7.8C47.1,8.3,39.5,10,32.4,11.8z' opacity='0.5'/%3E%3C/svg%3E"); }
+.asteroid.minus { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23e74c3c' d='M67.4,4.8C54.8-0.9,39.6-1.2,27.1,4.4c-11.9,5.4-21.3,16-25.4,28.5c-3.8,11.9-2.6,25.2,3.3,36.6c6.1,11.9,17,20.8,29.6,25.3c13.3,4.8,28.3,3.5,40.8-3.4c11.7-6.4,20.3-17.8,23.4-30.9c2.9-12.4,0.6-25.7-6.3-36.4C85.3,13.5,77.2,8.2,67.4,4.8z'/%3E%3Cpath fill='%23c0392b' d='M59.5,11.6c-4.3-2-9.1-3.2-13.9-3.5c-12.1-0.8-24,3.7-32.8,12.3C3.7,29.7-0.2,43.1,2.3,55.4c2.5,12.1,10.2,22.7,21.1,29.3c11.1,6.7,24.7,7.9,36.7,3.3c11.7-4.5,21.3-14.7,26-26.3c4.5-11.2,3.7-24.2-2.1-34.8C78,18,69.3,13.4,59.5,11.6z' opacity='0.5'/%3E%3C/svg%3E"); }
+.asteroid.multi { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23f39c12' d='M25.3,5.7C12.6,12.8,4,25.7,2.2,40.2c-1.7,13.9,2.8,28.2,12.2,38.1c9.6,10.2,24.3,15.8,38.3,14.7c14.2-1.1,27.4-8.6,35.7-20c7.7-10.6,9.9-24.6,6.1-37.1C89.7,21,78.5,10.3,65.1,5.1C52.7,0.2,38.3,0.5,25.3,5.7z'/%3E%3Cpath fill='%23d35400' d='M33.8,15.2c-8.5,3.8-15.6,11.2-19.3,19.8c-3.7,8.5-3.7,18.3-0.1,26.9c3.7,8.6,10.8,15.9,19.4,19.7c8.7,3.8,18.7,3.8,27.4,0c8.6-3.8,15.7-11.3,19.2-20.1c3.4-8.7,3.1-18.6-0.8-27.1C75.4,25,67.5,17.8,58.2,14.2C49.6,10.8,39.8,11.1,31.3,15.1z' opacity='0.5'/%3E%3C/svg%3E"); }
+.asteroid.divi { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233498db' d='M78.2,14.6C66,4.8,49.3,1.5,34.3,6.2c-14.4,4.5-26.2,16.9-30.6,31.6c-4.2,14,1.1,29.6,13.2,39.4c11.9,9.6,28.4,12.7,43.2,8.1c14.3-4.5,25.9-16.6,30.5-31c4.4-13.8-0.2-29.4-11.9-39.5C77.8,14.2,77.2,13.7,76.6,13.2z'/%3E%3Cpath fill='%232980b9' d='M69.6,22.3c-8.9-6.2-20.4-7.6-30.6-3.7C28.8,22.5,20.9,31,18.2,41.5c-2.7,10.3-0.4,21.5,6.3,30c6.7,8.5,17,13.7,27.7,13.7c10.7,0,21.1-5.1,27.9-13.5c6.8-8.4,9.3-19.7,6.6-30.1C84.1,41.4,77.7,30,69.6,22.3z' opacity='0.5'/%3E%3C/svg%3E"); }
+
+@keyframes tumble {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+
+.controls {
+  height: 120px;
+  background-color: #1e272e;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  z-index: 10;
+  border-top: 3px solid #4a69bd;
+}
+
+.spaceship-container {
+  animation: hoverShip 3s ease-in-out infinite;
+}
+@keyframes hoverShip {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+input.game-input {
+  padding: 15px;
+  font-size: 2rem;
+  font-family: 'Fredoka One', cursive;
+  width: 200px;
+  text-align: center;
+  border-radius: 12px;
+  border: 3px solid #4a69bd;
+  background: #d2dae2;
+  color: #1e272e;
+  outline: none;
+  transition: 0.3s;
+}
+input.game-input:focus {
+  border-color: #f6b93b;
+  box-shadow: 0 0 25px #f6b93b;
+  background: white;
+}
+
+.overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(11, 12, 21, 0.9);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 30;
+  color: white;
+  text-align: center;
+}
+
+.game-title {
+  font-size: 4rem;
+  color: #f6b93b;
+  text-shadow: 4px 4px 0px #e55039;
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+
+.instruction-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin: 30px;
+  font-size: 1.3rem;
+  text-align: left;
+}
+.instruction-box span { display: flex; align-items: center; }
+.legend-rock {
+  width: 40px; height: 40px;
+  margin-right: 10px;
+  background-size: contain;
+  display: inline-block;
+}
+.legend-rock.green { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%232ecc71' d='M45,3.1C31.2,6.4,18.8,13.5,9.6,24.1C-0.2,35.4-2.8,51.6,3.7,65.6c6.1,13.2,18.2,23.6,31.8,28.9c14.8,5.8,31.7,5.3,46.2-1.9c13.6-6.7,23.7-19.9,25.5-35c1.6-13.7-3-27.6-12.3-37.8C85.3,8.5,71.7,1.2,57.2,0.3C53.1-0.1,49,0.9,45,3.1z'/%3E%3C/svg%3E"); }
+.legend-rock.red { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23e74c3c' d='M67.4,4.8C54.8-0.9,39.6-1.2,27.1,4.4c-11.9,5.4-21.3,16-25.4,28.5c-3.8,11.9-2.6,25.2,3.3,36.6c6.1,11.9,17,20.8,29.6,25.3c13.3,4.8,28.3,3.5,40.8-3.4c11.7-6.4,20.3-17.8,23.4-30.9c2.9-12.4,0.6-25.7-6.3-36.4C85.3,13.5,77.2,8.2,67.4,4.8z'/%3E%3C/svg%3E"); }
+.legend-rock.orange { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%23f39c12' d='M25.3,5.7C12.6,12.8,4,25.7,2.2,40.2c-1.7,13.9,2.8,28.2,12.2,38.1c9.6,10.2,24.3,15.8,38.3,14.7c14.2-1.1,27.4-8.6,35.7-20c7.7-10.6,9.9-24.6,6.1-37.1C89.7,21,78.5,10.3,65.1,5.1C52.7,0.2,38.3,0.5,25.3,5.7z'/%3E%3C/svg%3E"); }
+.legend-rock.blue { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath fill='%233498db' d='M78.2,14.6C66,4.8,49.3,1.5,34.3,6.2c-14.4,4.5-26.2,16.9-30.6,31.6c-4.2,14,1.1,29.6,13.2,39.4c11.9,9.6,28.4,12.7,43.2,8.1c14.3-4.5,25.9-16.6,30.5-31c4.4-13.8-0.2-29.4-11.9-39.5C77.8,14.2,77.2,13.7,76.6,13.2z'/%3E%3C/svg%3E"); }
+
+button.game-btn {
+  padding: 15px 40px;
+  font-size: 1.5rem;
+  font-family: 'Fredoka One', cursive;
+  background: #e55039;
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 0 #b33939;
+  transition: transform 0.1s;
+}
+button.game-btn:active {
+  transform: translateY(6px);
+  box-shadow: 0 0px 0 #b33939;
+}
+button.game-btn:hover {
+  background: #ff6b6b;
+}
+
+.flash-red {
+  box-shadow: inset 0 0 100px red;
+  transition: box-shadow 0.2s;
+}
