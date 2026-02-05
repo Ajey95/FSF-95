@@ -1,5 +1,5 @@
 # PROJECT: ASD Communication Assistant (React Lab Edition)
-LIVE: [Demo](https://fsf-95-lor3-rcwaanax6-ajeyas-projects-ac1f8c11.vercel.app/)
+LIVE: [Demo](https://fsf-95-lor3.vercel.app/)
 ## 1. OVERVIEW
 
 The ASD Communication Assistant is a React-based web application designed to aid individuals with Autism Spectrum Disorder (ASD) in navigating digital communication. It simulates a WhatsApp Web interface and provides real-time AI analysis of messages to detect emotional tone, hidden sarcasm, and safety risks.
