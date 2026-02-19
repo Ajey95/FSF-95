@@ -1,0 +1,295 @@
+:root {
+  /* Cartoon Market Palette */
+  --calm-green: #A8E6CF;
+  --calm-blue: #DCEDC1;
+  --calm-peach: #FFD3B6;
+  --calm-pink: #FFAAA5;
+  --calm-text: #5D5C61;
+  --calm-bg: #FFFDF5;
+  /* Warm cream background */
+  --calm-white: #FFFFFF;
+
+  --cartoon-border: 3px solid #5D5C61;
+  --cartoon-shadow: 4px 4px 0px #5D5C61;
+}
+
+body {
+  margin: 0;
+  font-family: 'Fredoka', sans-serif;
+  /* Cartoon font */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--calm-bg);
+  color: var(--calm-text);
+  background-image: radial-gradient(#E0E0E0 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--calm-text);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Juicy Buttons */
+.btn-calm-primary {
+  background-color: var(--calm-green);
+  border: var(--cartoon-border);
+  box-shadow: var(--cartoon-shadow);
+  color: var(--calm-text);
+  font-weight: bold;
+  border-radius: 12px;
+  transition: all 0.1s ease;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+}
+
+.btn-calm-primary:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 6px 6px 0px #5D5C61;
+  background-color: #8FD9BF;
+  color: var(--calm-text);
+}
+
+.btn-calm-primary:active {
+  transform: translate(2px, 2px);
+  box-shadow: 0px 0px 0px #5D5C61;
+}
+
+/* Rounded Cards */
+.card-calm {
+  border: var(--cartoon-border);
+  border-radius: 20px;
+  background-color: var(--calm-white);
+  box-shadow: var(--cartoon-shadow);
+  transition: all 0.2s ease;
+  overflow: hidden;
+}
+
+.card-calm:hover {
+  transform: translateY(-5px) rotate(1deg);
+  box-shadow: 6px 6px 0px #5D5C61;
+}
+
+/* Animations */
+@keyframes gentle-bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+
+  75% {
+    transform: translateY(2px);
+  }
+}
+
+.shop-item-icon {
+  width: 100%;
+  height: 150px;
+  object-fit: contain;
+  padding: 15px;
+  animation: gentle-bounce 3s infinite ease-in-out;
+}
+
+.coin-btn {
+  transition: transform 0.1s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.coin-btn:active {
+  transform: scale(0.9);
+}
+
+/* Speech Bubble */
+.speech-bubble {
+  position: relative;
+  background: #ffffff;
+  border-radius: .4em;
+  border: var(--cartoon-border);
+  padding: 15px;
+  font-size: 1.2rem;
+  box-shadow: var(--cartoon-shadow);
+  margin-bottom: 20px;
+}
+
+.speech-bubble:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border: 15px solid transparent;
+  border-top-color: #5D5C61;
+  border-bottom: 0;
+  border-left: 0;
+  margin-left: -7.5px;
+  margin-bottom: -15px;
+}
+
+/* ─── Strategy Pages ─────────────────────────────────── */
+.strategy-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.strategy-card:hover {
+  transform: translateY(-6px) rotate(0.5deg);
+  box-shadow: 6px 6px 0px #5D5C61;
+}
+
+.strategy-emoji {
+  font-size: 3rem;
+  display: inline-block;
+  animation: gentle-bounce 4s infinite ease-in-out;
+}
+
+.strategy-page-header h1 {
+  font-size: clamp(1.6rem, 4vw, 2.4rem);
+}
+
+/* ─── Practice Pages ─────────────────────────────────── */
+
+/* Basket drop zone */
+.practice-basket {
+  border: 3px dashed #ccc;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80px;
+  transition: all 0.2s ease;
+}
+
+/* Large coin answer buttons */
+.coin-quiz-btn {
+  transition: transform 0.15s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.15s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.coin-quiz-btn:active {
+  transform: scale(0.88) !important;
+}
+
+/* Shake animation (wrong answer) */
+@keyframes shake {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-8px);
+  }
+
+  40% {
+    transform: translateX(8px);
+  }
+
+  60% {
+    transform: translateX(-6px);
+  }
+
+  80% {
+    transform: translateX(6px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.shake {
+  animation: shake 0.45s ease;
+}
+
+/* Bounce animation (correct answer) */
+@keyframes bounce-coin {
+  0% {
+    transform: scale(1);
+  }
+
+  30% {
+    transform: scale(1.3) rotate(-5deg);
+  }
+
+  60% {
+    transform: scale(0.95) rotate(3deg);
+  }
+
+  100% {
+    transform: scale(1) rotate(0);
+  }
+}
+
+.bounce-coin {
+  animation: bounce-coin 0.6s ease;
+}
+
+/* Number-line draggable marker */
+.nl-marker {
+  user-select: none;
+  cursor: grab;
+}
+
+.nl-marker:active {
+  cursor: grabbing;
+}
+
+/* Sequence builder drag card */
+.seq-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.seq-card:hover {
+  box-shadow: 4px 4px 0 #C3B1E1 !important;
+}
+
+.seq-picked {
+  box-shadow: 0 0 0 4px #C3B1E1 !important;
+}
+
+/* Breathing circle */
+@keyframes breathe {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.85;
+  }
+
+  50% {
+    transform: scale(1.35);
+    opacity: 1;
+  }
+}
+
+.breathe {
+  animation: breathe 6s ease-in-out infinite;
+}
+
+/* Scroll-reveal fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.challenge-reveal {
+  animation: fadeIn 0.5s ease forwards;
+}
