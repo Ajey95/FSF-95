@@ -33,15 +33,12 @@ function App() {
   const [sessionData, setSessionData] = useState([]);
   const [gameLevel, setGameLevel] = useState(1); // persists across nav to Stats/back
 
-  // Load data from local storage
+  // Clear stale stats on mount so every refresh starts fresh
   useEffect(() => {
-    const savedData = localStorage.getItem('calmMarketStats');
-    if (savedData) {
-      setSessionData(JSON.parse(savedData));
-    }
+    localStorage.removeItem('calmMarketStats');
   }, []);
 
-  // Save data to local storage
+  // Save session data in case it's needed during the session
   useEffect(() => {
     localStorage.setItem('calmMarketStats', JSON.stringify(sessionData));
   }, [sessionData]);

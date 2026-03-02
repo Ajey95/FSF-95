@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FSF Hub — Learning & Communication for All</title>
+    <meta name="description"
+        content="A unified hub for Calm Market and ASD Assistant — two apps built to support autistic learners with gentle, AI-powered tools." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Fredoka:wght@400;600;700&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+    <!-- ── Floating Orbs Background ── -->
+    <div class="orb orb-1" aria-hidden="true"></div>
+    <div class="orb orb-2" aria-hidden="true"></div>
+    <div class="orb orb-3" aria-hidden="true"></div>
+
+    <!-- ── Navbar ── -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-brand">
+            <span class="brand-icon">✦</span>
+            <span class="brand-name">FSF Hub</span>
+        </div>
+        <div class="nav-links">
+            <a href="#about" class="nav-link" id="link-about">About</a>
+            <a href="#projects" class="nav-link" id="link-projects">Projects</a>
+        </div>
+        <div class="nav-actions">
+            <a href="https://fsf-95-4b2g.vercel.app/" target="_blank" rel="noopener" class="nav-btn btn-market"
+                id="btn-nav-market">
+                🛒 Calm Market
+            </a>
+            <a href="https://fsf-95-lor3.vercel.app/" target="_blank" rel="noopener" class="nav-btn btn-asd"
+                id="btn-nav-asd">
+                💬 ASD Assistant
+            </a>
+        </div>
+        <button class="hamburger" id="hamburger" aria-label="Toggle navigation">
+            <span></span><span></span><span></span>
+        </button>
+    </nav>
+
+    <!-- Mobile Menu -->
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="https://fsf-95-4b2g.vercel.app/" target="_blank" id="mob-btn-market">🛒 Calm Market</a>
+        <a href="https://fsf-95-lor3.vercel.app/" target="_blank" id="mob-btn-asd">💬 ASD Assistant</a>
+        <a href="#about" id="mob-link-about">About</a>
+        <a href="#projects" id="mob-link-projects">Projects</a>
+    </div>
+
+    <!-- ── Hero ── -->
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <div class="hero-badge">🌟 Student Lab Evaluation — FSF '26</div>
+            <h1 class="hero-title">
+                Technology<br />
+                <span class="gradient-text">Made Gentle.</span>
+            </h1>
+            <p class="hero-subtitle">
+                Two apps. One mission — to make learning, communication, and everyday digital life
+                <em>accessible</em> and <em>joyful</em> for autistic individuals.
+            </p>
+            <div class="hero-ctas">
+                <a href="https://fsf-95-4b2g.vercel.app/" target="_blank" id="hero-btn-market"
+                    class="cta-btn cta-primary">
+                    <span class="cta-icon">🛒</span>
+                    <div>
+                        <div class="cta-label">Launch</div>
+                        <div class="cta-name">Calm Market</div>
+                    </div>
+                    <span class="cta-arrow">→</span>
+                </a>
+                <a href="https://fsf-95-lor3.vercel.app/" target="_blank" id="hero-btn-asd"
+                    class="cta-btn cta-secondary">
+                    <span class="cta-icon">💬</span>
+                    <div>
+                        <div class="cta-label">Launch</div>
+                        <div class="cta-name">ASD Assistant</div>
+                    </div>
+                    <span class="cta-arrow">→</span>
+                </a>
+            </div>
+            <div class="hero-scroll-hint">↓ Scroll to explore</div>
+        </div>
+
+        <div class="hero-visual" aria-hidden="true">
+            <img src="hero-asset.png" alt="" class="hero-img" draggable="false" />
+        </div>
+    </section>
+
+    <!-- ── About ── -->
+    <section class="about" id="about">
+        <div class="section-inner">
+            <div class="section-tag">About This Hub</div>
+            <h2 class="section-title">Built for Unique Minds</h2>
+            <p class="section-desc">
+                Both applications were designed with a single philosophy: technology should adapt to the user, not the
+                other way around. Every interaction is calm, predictable, and empowering.
+            </p>
+            <div class="pillars">
+                <div class="pillar" id="pillar-calm">
+                    <div class="pillar-icon">🍃</div>
+                    <h3>Calm First</h3>
+                    <p>No timers, no sudden noises. A gentle environment that reduces cognitive load.</p>
+                </div>
+                <div class="pillar" id="pillar-visual">
+                    <div class="pillar-icon">👁️</div>
+                    <h3>Visual Learning</h3>
+                    <p>Rich charts, icons, and animations help make abstract concepts concrete and clear.</p>
+                </div>
+                <div class="pillar" id="pillar-ai">
+                    <div class="pillar-icon">🤖</div>
+                    <h3>AI-Powered</h3>
+                    <p>Smart fallbacks — works offline when the internet drops, always stays reliable.</p>
+                </div>
+                <div class="pillar" id="pillar-safe">
+                    <div class="pillar-icon">🛡️</div>
+                    <h3>Safe Space</h3>
+                    <p>Encourages exploration without fear of failure. Every attempt is a step forward.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Projects ── -->
+    <section class="projects" id="projects">
+        <div class="section-inner">
+            <div class="section-tag">Our Projects</div>
+            <h2 class="section-title">Choose Your Experience</h2>
+
+            <!-- Card 1: Calm Market -->
+            <div class="project-card card-market" id="card-market">
+                <div class="card-content">
+                    <div class="card-eyebrow">Math · Shopping · AI Vision</div>
+                    <h3 class="card-title">🛒 Calm Market</h3>
+                    <p class="card-desc">
+                        A gamified market where children practice counting money, budgeting, and identifying real
+                        objects using their webcam — all at their own pace, with no timers and gentle feedback.
+                    </p>
+                    <ul class="card-features">
+                        <li>🎮 Interactive shopping game with progressive levels</li>
+                        <li>📷 AI Object Hunter via TensorFlow.js + webcam</li>
+                        <li>📊 Visual progress charts (Recharts)</li>
+                        <li>🧠 5 math learning strategies with practice modes</li>
+                    </ul>
+                    <div class="card-stack">
+                        <span class="tag">React</span>
+                        <span class="tag">TensorFlow.js</span>
+                        <span class="tag">Recharts</span>
+                        <span class="tag">Bootstrap</span>
+                    </div>
+                    <a href="https://fsf-95-4b2g.vercel.app/" target="_blank" class="card-btn btn-launch-market"
+                        id="card-btn-market">
+                        Open Calm Market →
+                    </a>
+                </div>
+                <div class="card-art art-market" aria-hidden="true">
+                    <img src="card-market.png" alt="Child at market" class="card-art-img" />
+                </div>
+            </div>
+
+            <!-- Card 2: ASD Assistant -->
+            <div class="project-card card-reverse card-asd" id="card-asd">
+                <div class="card-art art-asd" aria-hidden="true">
+                    <img src="card-asd.png" alt="Child using chat app" class="card-art-img" />
+                </div>
+                <div class="card-content">
+                    <div class="card-eyebrow">Communication · Safety · AI Chat</div>
+                    <h3 class="card-title">💬 ASD Assistant</h3>
+                    <p class="card-desc">
+                        A WhatsApp-style chat interface with embedded AI that decodes sarcasm, emotional tone, and
+                        safety risks in real time — helping ASD users navigate digital conversations confidently.
+                    </p>
+                    <ul class="card-features">
+                        <li>🔍 Real-time sarcasm & emotion detection</li>
+                        <li>☁️ Cloud (Gemini 2.5 Flash) + offline NLP fallback</li>
+                        <li>🛡️ Safety flags for manipulative language</li>
+                        <li>⚙️ Customisable AI persona & sensitivity settings</li>
+                    </ul>
+                    <div class="card-stack">
+                        <span class="tag">React</span>
+                        <span class="tag">Gemini AI</span>
+                        <span class="tag">Sentiment.js</span>
+                        <span class="tag">Tailwind</span>
+                    </div>
+                    <a href="https://fsf-95-lor3.vercel.app/" target="_blank" class="card-btn btn-launch-asd"
+                        id="card-btn-asd">
+                        Open ASD Assistant →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ── Footer ── -->
+    <footer class="footer" id="footer">
+        <div class="footer-inner">
+            <div class="footer-brand">
+                <span class="brand-icon">✦</span>
+                <span class="brand-name">FSF Hub</span>
+            </div>
+            <p class="footer-tagline">Learning Made Gentle. Communication Made Clear.</p>
+            <div class="footer-links">
+                <a href="https://fsf-95-4b2g.vercel.app/" target="_blank" id="footer-link-market">🛒 Calm Market</a>
+                <span class="footer-sep">·</span>
+                <a href="https://fsf-95-lor3.vercel.app/" target="_blank" id="footer-link-asd">💬 ASD Assistant</a>
+            </div>
+            <p class="footer-copy">© 2026 FSF Lab Evaluation · Built with ❤️ for accessible learning</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
